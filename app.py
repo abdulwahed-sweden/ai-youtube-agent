@@ -82,8 +82,11 @@ def main():
                         st.text_input(f"Value {i+1} Name*", key=f"value_name_{i}")
                     with col_b:
                         st.text_area(f"Value {i+1} Description", key=f"value_desc_{i}")
-            if st.button("➕ Add Value"):
+
+            # استخدام st.form_submit_button بدلاً من st.button
+            if st.form_submit_button("➕ Add Value"):
                 st.session_state.values_count += 1
+
 
         # Similar tabs for Challenges, Achievements, Life Events, and Businesses
         # (Implementation pattern similar to Values tab)

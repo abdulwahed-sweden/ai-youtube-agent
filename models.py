@@ -1,7 +1,7 @@
 # models.py
 
-from pydantic import BaseModel, Field, validator
-from typing import List, Optional, Dict
+from pydantic import BaseModel, Field, field_validator
+from typing import List, Optional, Dict, Any
 from datetime import datetime
 
 class ValueObject(BaseModel):
@@ -66,7 +66,7 @@ class LifeEventObject(BaseModel):
     year: int = Field(..., ge=1900, le=datetime.now().year)
     description: str = Field(..., min_length=10, max_length=500)
     impact: str = Field(..., min_length=10, max_length=500)
-    category: Optional[str] = Field(None, regex="^(personal|professional|financial)$")
+    category: Optional[str] = Field(None, pattern="^(personal|professional|financial)$")
 
 class BusinessObject(BaseModel):
     """
@@ -86,11 +86,11 @@ class BusinessObject(BaseModel):
     annual_revenue: Optional[float] = Field(None, ge=0)
     business_type: str = Field(
         ...,
-        regex="^(merchandise|courses|sponsorships|production|other)$"
+        pattern="^(merchandise|courses|sponsorships|production|other)$"
     )
-    status: str = Field("active", regex="^(active|inactive|sold|acquired)$")
+    status: str = Field("active", pattern="^(active|inactive|sold|acquired)$")
 
-    @validator('year_started')
+    @field_validator('year_started')
     def validate_year_started(cls, value):
         if value > datetime.now().year:
             raise ValueError("Business cannot start in the future")
@@ -111,11 +111,12 @@ class PersonalInfo(BaseModel):
     """
     full_name: str = Field(..., min_length=2, max_length=100)
     channel_name: str = Field(..., min_length=2, max_length=100)
-    channel_url: str = Field(..., regex=r"^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+")
+    channel_url: str = Field(..., pattern=r"^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+")
     niche: str = Field(..., min_length=2, max_length=50)
     start_year: int = Field(..., ge=2005, le=datetime.now().year)
     country: Optional[str] = Field(None, min_length=2, max_length=56)
     team_size: int = Field(1, ge=1, le=1000)
+
 
 class ContentCreatorInfo(BaseModel):
     """
