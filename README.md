@@ -1,51 +1,46 @@
-# YouTube Content Creator Analysis System 🤖
+YouTube Content Creator Analysis System 🤖
 
-![Banner](https://via.placeholder.com/800x200.png?text=AI+Powered+Content+Creator+Analytics)
+
 
 An AI-powered system for comprehensive analysis of YouTube creators' careers, values, and business ventures.
 
-## Key Features 🚀
-- Personal & professional data analysis
-- Business venture tracking
-- Automated Markdown/JSON reports
-- Multi-source data integration
+Key Features 🚀
 
-## Installation ⚙️
-```bash
+Personal & professional data analysis
+
+Business venture tracking
+
+Automated Markdown/JSON reports
+
+Multi-source data integration
+
+Installation ⚙️
+
 git clone https://github.com/abdulwahed-sweden/ai-youtube-agent.git
 cd ai-youtube-agent
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
+
 Usage 🖥️
-bash
-Copy
+
 streamlit run app.py
+
 (The web interface will automatically open in your browser)
 
-Project Structure 📂
-Copy
+Project Structure 🗂️
+
 ai-youtube-agent/
 ├── app.py         # Main application interface
 ├── agent.py       # AI analysis engine
 ├── models.py      # Data models
 ├── utils.py       # Helper utilities
 └── requirements.txt
+
 License 📜
-Open-source under MIT License
+
+Open-source under MIT License.
 
 Contact 📧
-Developer: Abdulwahed Sweden
-GitHub
-📩 Email: abdulwahed.sweden@gmail.com
 
-Copy
-
-This version maintains:
-- Clean markdown formatting
-- Proper code syntax highlighting
-- Consistent emoji usage
-- Clear section headers
-- Active repository link
-- Prominent contact information
-- Bilingual-friendly structure
+Developer: Abdulwahed SwedenGitHub📩 Email: abdulwahed.sweden@gmail.com
